@@ -126,6 +126,30 @@ const routes = [
             name: 'services.edit',
             component: () => import('@cruds/Services/Edit.vue'),
             meta: { title: 'cruds.service.title' }
+          },
+          {
+            path: 'service-items',
+            name: 'service_items.index',
+            component: () => import('@cruds/ServiceItems/Index.vue'),
+            meta: { title: 'cruds.serviceItem.title' }
+          },
+          {
+            path: 'service-items/create',
+            name: 'service_items.create',
+            component: () => import('@cruds/ServiceItems/Create.vue'),
+            meta: { title: 'cruds.serviceItem.title' }
+          },
+          {
+            path: 'service-items/:id',
+            name: 'service_items.show',
+            component: () => import('@cruds/ServiceItems/Show.vue'),
+            meta: { title: 'cruds.serviceItem.title' }
+          },
+          {
+            path: 'service-items/:id/edit',
+            name: 'service_items.edit',
+            component: () => import('@cruds/ServiceItems/Edit.vue'),
+            meta: { title: 'cruds.serviceItem.title' }
           }
         ]
       },
