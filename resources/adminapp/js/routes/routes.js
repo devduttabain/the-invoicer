@@ -98,6 +98,62 @@ const routes = [
         ]
       },
       {
+        path: 'client-management',
+        name: 'client_management',
+        component: View,
+        redirect: { name: 'clients.index' },
+        children: [
+          {
+            path: 'clients',
+            name: 'clients.index',
+            component: () => import('@cruds/Clients/Index.vue'),
+            meta: { title: 'cruds.client.title' }
+          },
+          {
+            path: 'clients/create',
+            name: 'clients.create',
+            component: () => import('@cruds/Clients/Create.vue'),
+            meta: { title: 'cruds.client.title' }
+          },
+          {
+            path: 'clients/:id',
+            name: 'clients.show',
+            component: () => import('@cruds/Clients/Show.vue'),
+            meta: { title: 'cruds.client.title' }
+          },
+          {
+            path: 'clients/:id/edit',
+            name: 'clients.edit',
+            component: () => import('@cruds/Clients/Edit.vue'),
+            meta: { title: 'cruds.client.title' }
+          },
+          {
+            path: 'client-custom-datas',
+            name: 'client_custom_datas.index',
+            component: () => import('@cruds/ClientCustomDatas/Index.vue'),
+            meta: { title: 'cruds.clientCustomData.title' }
+          },
+          {
+            path: 'client-custom-datas/create',
+            name: 'client_custom_datas.create',
+            component: () => import('@cruds/ClientCustomDatas/Create.vue'),
+            meta: { title: 'cruds.clientCustomData.title' }
+          },
+          {
+            path: 'client-custom-datas/:id',
+            name: 'client_custom_datas.show',
+            component: () => import('@cruds/ClientCustomDatas/Show.vue'),
+            meta: { title: 'cruds.clientCustomData.title' }
+          },
+          {
+            path: 'client-custom-datas/:id/edit',
+            name: 'client_custom_datas.edit',
+            component: () => import('@cruds/ClientCustomDatas/Edit.vue'),
+            meta: { title: 'cruds.clientCustomData.title' }
+          }
+        ]
+      },
+      {
         path: 'service-job',
         name: 'service_job',
         component: View,
@@ -152,30 +208,6 @@ const routes = [
             meta: { title: 'cruds.serviceItem.title' }
           }
         ]
-      },
-      {
-        path: 'clients',
-        name: 'clients.index',
-        component: () => import('@cruds/Clients/Index.vue'),
-        meta: { title: 'cruds.client.title' }
-      },
-      {
-        path: 'clients/create',
-        name: 'clients.create',
-        component: () => import('@cruds/Clients/Create.vue'),
-        meta: { title: 'cruds.client.title' }
-      },
-      {
-        path: 'clients/:id',
-        name: 'clients.show',
-        component: () => import('@cruds/Clients/Show.vue'),
-        meta: { title: 'cruds.client.title' }
-      },
-      {
-        path: 'clients/:id/edit',
-        name: 'clients.edit',
-        component: () => import('@cruds/Clients/Edit.vue'),
-        meta: { title: 'cruds.client.title' }
       },
       {
         path: 'contact-management',
