@@ -246,6 +246,26 @@ class PermissionsTableSeeder extends Seeder
                 'id'    => 59,
                 'title' => 'crm_document_access',
             ],
+            [
+                'id'    => 60,
+                'title' => 'service_item_create',
+            ],
+            [
+                'id'    => 61,
+                'title' => 'service_item_edit',
+            ],
+            [
+                'id'    => 62,
+                'title' => 'service_item_show',
+            ],
+            [
+                'id'    => 63,
+                'title' => 'service_item_delete',
+            ],
+            [
+                'id'    => 64,
+                'title' => 'service_item_access',
+            ],
         ];
 
         Permission::insert($permissions);

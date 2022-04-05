@@ -70,6 +70,12 @@ export default {
               icon: 'table_view',
               path: { name: 'services.index' },
               gate: 'service_access'
+            },
+            {
+              title: 'cruds.serviceItem.title',
+              icon: 'table_view',
+              path: { name: 'service_items.index' },
+              gate: 'service_item_access'
             }
           ]
         },
