@@ -266,6 +266,30 @@ class PermissionsTableSeeder extends Seeder
                 'id'    => 64,
                 'title' => 'service_item_access',
             ],
+            [
+                'id'    => 65,
+                'title' => 'client_custom_data_create',
+            ],
+            [
+                'id'    => 66,
+                'title' => 'client_custom_data_edit',
+            ],
+            [
+                'id'    => 67,
+                'title' => 'client_custom_data_show',
+            ],
+            [
+                'id'    => 68,
+                'title' => 'client_custom_data_delete',
+            ],
+            [
+                'id'    => 69,
+                'title' => 'client_custom_data_access',
+            ],
+            [
+                'id'    => 70,
+                'title' => 'client_management_access',
+            ],
         ];
 
         Permission::insert($permissions);

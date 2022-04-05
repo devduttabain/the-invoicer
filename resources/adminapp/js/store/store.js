@@ -28,6 +28,8 @@ import CrmDocumentsIndex from './cruds/CrmDocuments'
 import CrmDocumentsSingle from './cruds/CrmDocuments/single'
 import ServiceItemsIndex from './cruds/ServiceItems'
 import ServiceItemsSingle from './cruds/ServiceItems/single'
+import ClientCustomDatasIndex from './cruds/ClientCustomDatas'
+import ClientCustomDatasSingle from './cruds/ClientCustomDatas/single'
 
 Vue.use(Vuex)
 
@@ -60,7 +62,9 @@ export default new Vuex.Store({
     CrmDocumentsIndex,
     CrmDocumentsSingle,
     ServiceItemsIndex,
-    ServiceItemsSingle
+    ServiceItemsSingle,
+    ClientCustomDatasIndex,
+    ClientCustomDatasSingle
   },
   strict: debug
 })

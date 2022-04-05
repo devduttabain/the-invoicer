@@ -60,6 +60,26 @@ export default {
           ]
         },
         {
+          title: 'cruds.clientManagement.title',
+          icon: 'table_view',
+          path: { name: 'client_management' },
+          gate: 'client_management_access',
+          children: [
+            {
+              title: 'cruds.client.title',
+              icon: 'table_view',
+              path: { name: 'clients.index' },
+              gate: 'client_access'
+            },
+            {
+              title: 'cruds.clientCustomData.title',
+              icon: 'table_view',
+              path: { name: 'client_custom_datas.index' },
+              gate: 'client_custom_data_access'
+            }
+          ]
+        },
+        {
           title: 'cruds.serviceJob.title',
           icon: 'table_view',
           path: { name: 'service_job' },
@@ -78,12 +98,6 @@ export default {
               gate: 'service_item_access'
             }
           ]
-        },
-        {
-          title: 'cruds.client.title',
-          icon: 'table_view',
-          path: { name: 'clients.index' },
-          gate: 'client_access'
         },
         {
           title: 'cruds.contactManagement.title',

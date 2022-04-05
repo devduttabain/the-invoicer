@@ -44,4 +44,7 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
 
     // Service Item
     Route::resource('service-items', 'ServiceItemApiController');
+
+    // Client Custom Data
+    Route::resource('client-custom-datas', 'ClientCustomDataApiController');
 });
