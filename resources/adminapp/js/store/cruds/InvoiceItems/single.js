@@ -2,26 +2,33 @@ function initialState() {
   return {
     entry: {
       id: null,
+      invoice_id: null,
       title: '',
-      client_id: null,
-      starts_from: '',
-      type: 'service',
-      priority: '3',
-      ends_at: '',
+      description: '',
+      unit: '',
+      quantity: '1',
+      price_per_unit: '0',
+      sub_total_price: '',
+      discount: '0',
+      discount_percentage: '0',
+      tax: '0',
+      tax_percentage: '0',
+      service_id: null,
+      service_item_id: null,
       created_at: '',
       updated_at: '',
       deleted_at: ''
     },
     lists: {
-      client: [],
-      type: [],
-      priority: []
+      invoice: [],
+      service: [],
+      service_item: []
     },
     loading: false
   }
 }
 
-const route = 'services'
+const route = 'invoice-items'
 
 const getters = {
   entry: state => state.entry,
@@ -93,23 +100,44 @@ const actions = {
         })
     })
   },
+  setInvoice({ commit }, value) {
+    commit('setInvoice', value)
+  },
   setTitle({ commit }, value) {
     commit('setTitle', value)
   },
-  setClient({ commit }, value) {
-    commit('setClient', value)
+  setDescription({ commit }, value) {
+    commit('setDescription', value)
   },
-  setStartsFrom({ commit }, value) {
-    commit('setStartsFrom', value)
+  setUnit({ commit }, value) {
+    commit('setUnit', value)
   },
-  setType({ commit }, value) {
-    commit('setType', value)
+  setQuantity({ commit }, value) {
+    commit('setQuantity', value)
   },
-  setPriority({ commit }, value) {
-    commit('setPriority', value)
+  setPricePerUnit({ commit }, value) {
+    commit('setPricePerUnit', value)
   },
-  setEndsAt({ commit }, value) {
-    commit('setEndsAt', value)
+  setSubTotalPrice({ commit }, value) {
+    commit('setSubTotalPrice', value)
+  },
+  setDiscount({ commit }, value) {
+    commit('setDiscount', value)
+  },
+  setDiscountPercentage({ commit }, value) {
+    commit('setDiscountPercentage', value)
+  },
+  setTax({ commit }, value) {
+    commit('setTax', value)
+  },
+  setTaxPercentage({ commit }, value) {
+    commit('setTaxPercentage', value)
+  },
+  setService({ commit }, value) {
+    commit('setService', value)
+  },
+  setServiceItem({ commit }, value) {
+    commit('setServiceItem', value)
   },
   setCreatedAt({ commit }, value) {
     commit('setCreatedAt', value)
@@ -145,23 +173,44 @@ const mutations = {
   setEntry(state, entry) {
     state.entry = entry
   },
+  setInvoice(state, value) {
+    state.entry.invoice_id = value
+  },
   setTitle(state, value) {
     state.entry.title = value
   },
-  setClient(state, value) {
-    state.entry.client_id = value
+  setDescription(state, value) {
+    state.entry.description = value
   },
-  setStartsFrom(state, value) {
-    state.entry.starts_from = value
+  setUnit(state, value) {
+    state.entry.unit = value
   },
-  setType(state, value) {
-    state.entry.type = value
+  setQuantity(state, value) {
+    state.entry.quantity = value
   },
-  setPriority(state, value) {
-    state.entry.priority = value
+  setPricePerUnit(state, value) {
+    state.entry.price_per_unit = value
   },
-  setEndsAt(state, value) {
-    state.entry.ends_at = value
+  setSubTotalPrice(state, value) {
+    state.entry.sub_total_price = value
+  },
+  setDiscount(state, value) {
+    state.entry.discount = value
+  },
+  setDiscountPercentage(state, value) {
+    state.entry.discount_percentage = value
+  },
+  setTax(state, value) {
+    state.entry.tax = value
+  },
+  setTaxPercentage(state, value) {
+    state.entry.tax_percentage = value
+  },
+  setService(state, value) {
+    state.entry.service_id = value
+  },
+  setServiceItem(state, value) {
+    state.entry.service_item_id = value
   },
   setCreatedAt(state, value) {
     state.entry.created_at = value

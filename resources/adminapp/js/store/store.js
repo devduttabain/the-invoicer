@@ -30,6 +30,10 @@ import ServiceItemsIndex from './cruds/ServiceItems'
 import ServiceItemsSingle from './cruds/ServiceItems/single'
 import ClientCustomDatasIndex from './cruds/ClientCustomDatas'
 import ClientCustomDatasSingle from './cruds/ClientCustomDatas/single'
+import InvoicesIndex from './cruds/Invoices'
+import InvoicesSingle from './cruds/Invoices/single'
+import InvoiceItemsIndex from './cruds/InvoiceItems'
+import InvoiceItemsSingle from './cruds/InvoiceItems/single'
 
 Vue.use(Vuex)
 
@@ -64,7 +68,11 @@ export default new Vuex.Store({
     ServiceItemsIndex,
     ServiceItemsSingle,
     ClientCustomDatasIndex,
-    ClientCustomDatasSingle
+    ClientCustomDatasSingle,
+    InvoicesIndex,
+    InvoicesSingle,
+    InvoiceItemsIndex,
+    InvoiceItemsSingle
   },
   strict: debug
 })

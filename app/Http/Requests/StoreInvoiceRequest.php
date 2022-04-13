@@ -1,0 +1,55 @@
+<?php
+
+namespace App\Http\Requests;
+
+use App\Models\Invoice;
+use Gate;
+use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Response;
+use Illuminate\Support\Arr;
+
+class StoreInvoiceRequest extends FormRequest
+{
+    public function authorize()
+    {
+        return Gate::allows('invoice_create');
+    }
+
+    public function rules()
+    {
+        return [
+            'invoice_no' => [
+                'integer',
+                'min:-2147483648',
+                'max:2147483647',
+                'nullable',
+            ],
+            'service_id' => [
+                'integer',
+                'exists:services,id',
+                'nullable',
+            ],
+            'client_id' => [
+                'integer',
+                'exists:clients,id',
+                'nullable',
+            ],
+            'is_gst_enabled' => [
+                'nullable',
+                'in:' . implode(',', Arr::pluck(Invoice::IS_GST_ENABLED_RADIO, 'value')),
+            ],
+            'gstin' => [
+                'string',
+                'nullable',
+            ],
+            'invoice_tax_rate_cgst' => [
+                'numeric',
+                'nullable',
+            ],
+            'invoice_tax_rate_sgst' => [
+                'numeric',
+                'nullable',
+            ],
+        ];
+    }
+}

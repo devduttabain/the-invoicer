@@ -9,7 +9,7 @@
             </div>
             <h4 class="card-title">
               {{ $t('global.view') }}
-              <strong>{{ $t('cruds.service.title_singular') }}</strong>
+              <strong>{{ $t('cruds.invoice.title_singular') }}</strong>
             </h4>
           </div>
           <div class="card-body">
@@ -23,7 +23,7 @@
                     <tbody>
                       <tr>
                         <td class="text-primary">
-                          {{ $t('cruds.service.fields.id') }}
+                          {{ $t('cruds.invoice.fields.id') }}
                         </td>
                         <td>
                           {{ entry.id }}
@@ -31,15 +31,24 @@
                       </tr>
                       <tr>
                         <td class="text-primary">
-                          {{ $t('cruds.service.fields.title') }}
+                          {{ $t('cruds.invoice.fields.invoice_no') }}
                         </td>
                         <td>
-                          {{ entry.title }}
+                          {{ entry.invoice_no }}
                         </td>
                       </tr>
                       <tr>
                         <td class="text-primary">
-                          {{ $t('cruds.service.fields.client') }}
+                          {{ $t('cruds.invoice.fields.service') }}
+                        </td>
+                        <td>
+                          <datatable-single :row="entry" field="service.title">
+                          </datatable-single>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="text-primary">
+                          {{ $t('cruds.invoice.fields.client') }}
                         </td>
                         <td>
                           <datatable-single :row="entry" field="client.name">
@@ -48,36 +57,35 @@
                       </tr>
                       <tr>
                         <td class="text-primary">
-                          {{ $t('cruds.service.fields.starts_from') }}
+                          {{ $t('cruds.invoice.fields.is_gst_enabled') }}
                         </td>
                         <td>
-                          {{ entry.starts_from }}
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="text-primary">
-                          {{ $t('cruds.service.fields.type') }}
-                        </td>
-                        <td>
-                          <datatable-enum :row="entry" field="type">
+                          <datatable-enum :row="entry" field="is_gst_enabled">
                           </datatable-enum>
                         </td>
                       </tr>
                       <tr>
                         <td class="text-primary">
-                          {{ $t('cruds.service.fields.priority') }}
+                          {{ $t('cruds.invoice.fields.gstin') }}
                         </td>
                         <td>
-                          <datatable-enum :row="entry" field="priority">
-                          </datatable-enum>
+                          {{ entry.gstin }}
                         </td>
                       </tr>
                       <tr>
                         <td class="text-primary">
-                          {{ $t('cruds.service.fields.ends_at') }}
+                          {{ $t('cruds.invoice.fields.invoice_tax_rate_cgst') }}
                         </td>
                         <td>
-                          {{ entry.ends_at }}
+                          {{ entry.invoice_tax_rate_cgst }}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="text-primary">
+                          {{ $t('cruds.invoice.fields.invoice_tax_rate_sgst') }}
+                        </td>
+                        <td>
+                          {{ entry.invoice_tax_rate_sgst }}
                         </td>
                       </tr>
                     </tbody>
@@ -109,7 +117,7 @@ export default {
     this.resetState()
   },
   computed: {
-    ...mapGetters('ServicesSingle', ['entry'])
+    ...mapGetters('InvoicesSingle', ['entry'])
   },
   watch: {
     '$route.params.id': {
@@ -121,7 +129,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions('ServicesSingle', ['fetchShowData', 'resetState'])
+    ...mapActions('InvoicesSingle', ['fetchShowData', 'resetState'])
   }
 }
 </script>

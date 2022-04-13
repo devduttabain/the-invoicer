@@ -96,6 +96,18 @@ export default {
               icon: 'table_view',
               path: { name: 'service_items.index' },
               gate: 'service_item_access'
+            },
+            {
+              title: 'cruds.invoice.title',
+              icon: 'table_view',
+              path: { name: 'invoices.index' },
+              gate: 'invoice_access'
+            },
+            {
+              title: 'cruds.invoiceItem.title',
+              icon: 'table_view',
+              path: { name: 'invoice_items.index' },
+              gate: 'invoice_item_access'
             }
           ]
         },

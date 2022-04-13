@@ -54,6 +54,7 @@ class Service extends Model
 
     protected $dates = [
         'starts_from',
+        'ends_at',
         'created_at',
         'updated_at',
         'deleted_at',
@@ -65,8 +66,8 @@ class Service extends Model
         'client.name',
         'starts_from',
         'type',
-        'ends_at',
         'priority',
+        'ends_at',
     ];
 
     protected $filterable = [
@@ -75,8 +76,8 @@ class Service extends Model
         'client.name',
         'starts_from',
         'type',
-        'ends_at',
         'priority',
+        'ends_at',
     ];
 
     protected $fillable = [
@@ -84,8 +85,8 @@ class Service extends Model
         'client_id',
         'starts_from',
         'type',
-        'ends_at',
         'priority',
+        'ends_at',
         'created_at',
         'updated_at',
         'deleted_at',
@@ -114,6 +115,16 @@ class Service extends Model
     public function getPriorityLabelAttribute()
     {
         return collect(static::PRIORITY_RADIO)->firstWhere('value', $this->priority)['label'] ?? '';
+    }
+
+    public function getEndsAtAttribute($value)
+    {
+        return $value ? Carbon::createFromFormat('Y-m-d H:i:s', $value)->format(config('project.date_format')) : null;
+    }
+
+    public function setEndsAtAttribute($value)
+    {
+        $this->attributes['ends_at'] = $value ? Carbon::createFromFormat(config('project.date_format'), $value)->format('Y-m-d') : null;
     }
 
     protected function serializeDate(DateTimeInterface $date)

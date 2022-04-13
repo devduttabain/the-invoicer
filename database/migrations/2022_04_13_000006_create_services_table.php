@@ -13,8 +13,8 @@ class CreateServicesTable extends Migration
             $table->string('title')->nullable();
             $table->date('starts_from');
             $table->string('type')->nullable();
-            $table->string('ends_at')->nullable();
             $table->string('priority')->nullable();
+            $table->date('ends_at')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

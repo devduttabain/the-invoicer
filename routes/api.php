@@ -47,4 +47,10 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
 
     // Client Custom Data
     Route::resource('client-custom-datas', 'ClientCustomDataApiController');
+
+    // Invoice
+    Route::resource('invoices', 'InvoiceApiController');
+
+    // Invoice Item
+    Route::resource('invoice-items', 'InvoiceItemApiController');
 });
