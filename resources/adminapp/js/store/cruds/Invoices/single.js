@@ -2,26 +2,27 @@ function initialState() {
   return {
     entry: {
       id: null,
-      title: '',
+      invoice_no: '',
+      service_id: null,
       client_id: null,
-      starts_from: '',
-      type: 'service',
-      priority: '3',
-      ends_at: '',
+      is_gst_enabled: null,
+      gstin: '',
+      invoice_tax_rate_cgst: '',
+      invoice_tax_rate_sgst: '0',
       created_at: '',
       updated_at: '',
       deleted_at: ''
     },
     lists: {
+      service: [],
       client: [],
-      type: [],
-      priority: []
+      is_gst_enabled: []
     },
     loading: false
   }
 }
 
-const route = 'services'
+const route = 'invoices'
 
 const getters = {
   entry: state => state.entry,
@@ -93,23 +94,26 @@ const actions = {
         })
     })
   },
-  setTitle({ commit }, value) {
-    commit('setTitle', value)
+  setInvoiceNo({ commit }, value) {
+    commit('setInvoiceNo', value)
+  },
+  setService({ commit }, value) {
+    commit('setService', value)
   },
   setClient({ commit }, value) {
     commit('setClient', value)
   },
-  setStartsFrom({ commit }, value) {
-    commit('setStartsFrom', value)
+  setIsGstEnabled({ commit }, value) {
+    commit('setIsGstEnabled', value)
   },
-  setType({ commit }, value) {
-    commit('setType', value)
+  setGstin({ commit }, value) {
+    commit('setGstin', value)
   },
-  setPriority({ commit }, value) {
-    commit('setPriority', value)
+  setInvoiceTaxRateCgst({ commit }, value) {
+    commit('setInvoiceTaxRateCgst', value)
   },
-  setEndsAt({ commit }, value) {
-    commit('setEndsAt', value)
+  setInvoiceTaxRateSgst({ commit }, value) {
+    commit('setInvoiceTaxRateSgst', value)
   },
   setCreatedAt({ commit }, value) {
     commit('setCreatedAt', value)
@@ -145,23 +149,26 @@ const mutations = {
   setEntry(state, entry) {
     state.entry = entry
   },
-  setTitle(state, value) {
-    state.entry.title = value
+  setInvoiceNo(state, value) {
+    state.entry.invoice_no = value
+  },
+  setService(state, value) {
+    state.entry.service_id = value
   },
   setClient(state, value) {
     state.entry.client_id = value
   },
-  setStartsFrom(state, value) {
-    state.entry.starts_from = value
+  setIsGstEnabled(state, value) {
+    state.entry.is_gst_enabled = value
   },
-  setType(state, value) {
-    state.entry.type = value
+  setGstin(state, value) {
+    state.entry.gstin = value
   },
-  setPriority(state, value) {
-    state.entry.priority = value
+  setInvoiceTaxRateCgst(state, value) {
+    state.entry.invoice_tax_rate_cgst = value
   },
-  setEndsAt(state, value) {
-    state.entry.ends_at = value
+  setInvoiceTaxRateSgst(state, value) {
+    state.entry.invoice_tax_rate_sgst = value
   },
   setCreatedAt(state, value) {
     state.entry.created_at = value

@@ -206,6 +206,54 @@ const routes = [
             name: 'service_items.edit',
             component: () => import('@cruds/ServiceItems/Edit.vue'),
             meta: { title: 'cruds.serviceItem.title' }
+          },
+          {
+            path: 'invoices',
+            name: 'invoices.index',
+            component: () => import('@cruds/Invoices/Index.vue'),
+            meta: { title: 'cruds.invoice.title' }
+          },
+          {
+            path: 'invoices/create',
+            name: 'invoices.create',
+            component: () => import('@cruds/Invoices/Create.vue'),
+            meta: { title: 'cruds.invoice.title' }
+          },
+          {
+            path: 'invoices/:id',
+            name: 'invoices.show',
+            component: () => import('@cruds/Invoices/Show.vue'),
+            meta: { title: 'cruds.invoice.title' }
+          },
+          {
+            path: 'invoices/:id/edit',
+            name: 'invoices.edit',
+            component: () => import('@cruds/Invoices/Edit.vue'),
+            meta: { title: 'cruds.invoice.title' }
+          },
+          {
+            path: 'invoice-items',
+            name: 'invoice_items.index',
+            component: () => import('@cruds/InvoiceItems/Index.vue'),
+            meta: { title: 'cruds.invoiceItem.title' }
+          },
+          {
+            path: 'invoice-items/create',
+            name: 'invoice_items.create',
+            component: () => import('@cruds/InvoiceItems/Create.vue'),
+            meta: { title: 'cruds.invoiceItem.title' }
+          },
+          {
+            path: 'invoice-items/:id',
+            name: 'invoice_items.show',
+            component: () => import('@cruds/InvoiceItems/Show.vue'),
+            meta: { title: 'cruds.invoiceItem.title' }
+          },
+          {
+            path: 'invoice-items/:id/edit',
+            name: 'invoice_items.edit',
+            component: () => import('@cruds/InvoiceItems/Edit.vue'),
+            meta: { title: 'cruds.invoiceItem.title' }
           }
         ]
       },

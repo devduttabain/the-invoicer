@@ -9,7 +9,7 @@
             </div>
             <h4 class="card-title">
               {{ $t('global.table') }}
-              <strong>{{ $t('cruds.service.title') }}</strong>
+              <strong>{{ $t('cruds.invoice.title') }}</strong>
             </h4>
           </div>
           <div class="card-body">
@@ -84,48 +84,54 @@ export default {
     return {
       columns: [
         {
-          title: 'cruds.service.fields.id',
+          title: 'cruds.invoice.fields.id',
           field: 'id',
           thComp: TranslatedHeader,
           sortable: true,
           colStyle: 'width: 100px;'
         },
         {
-          title: 'cruds.service.fields.title',
-          field: 'title',
+          title: 'cruds.invoice.fields.invoice_no',
+          field: 'invoice_no',
           thComp: TranslatedHeader,
           sortable: true
         },
         {
-          title: 'cruds.service.fields.client',
+          title: 'cruds.invoice.fields.service',
+          field: 'service.title',
+          thComp: TranslatedHeader,
+          tdComp: DatatableSingle,
+          sortable: true
+        },
+        {
+          title: 'cruds.invoice.fields.client',
           field: 'client.name',
           thComp: TranslatedHeader,
           tdComp: DatatableSingle,
           sortable: true
         },
         {
-          title: 'cruds.service.fields.starts_from',
-          field: 'starts_from',
+          title: 'cruds.invoice.fields.is_gst_enabled',
+          field: 'is_gst_enabled',
+          thComp: TranslatedHeader,
+          sortable: true,
+          tdComp: DatatableEnum
+        },
+        {
+          title: 'cruds.invoice.fields.gstin',
+          field: 'gstin',
           thComp: TranslatedHeader,
           sortable: true
         },
         {
-          title: 'cruds.service.fields.type',
-          field: 'type',
+          title: 'cruds.invoice.fields.invoice_tax_rate_cgst',
+          field: 'invoice_tax_rate_cgst',
           thComp: TranslatedHeader,
-          sortable: true,
-          tdComp: DatatableEnum
+          sortable: true
         },
         {
-          title: 'cruds.service.fields.priority',
-          field: 'priority',
-          thComp: TranslatedHeader,
-          sortable: true,
-          tdComp: DatatableEnum
-        },
-        {
-          title: 'cruds.service.fields.ends_at',
-          field: 'ends_at',
+          title: 'cruds.invoice.fields.invoice_tax_rate_sgst',
+          field: 'invoice_tax_rate_sgst',
           thComp: TranslatedHeader,
           sortable: true
         },
@@ -141,9 +147,9 @@ export default {
       ],
       query: { sort: 'id', order: 'desc', limit: 100, s: '' },
       xprops: {
-        module: 'ServicesIndex',
-        route: 'services',
-        permission_prefix: 'service_'
+        module: 'InvoicesIndex',
+        route: 'invoices',
+        permission_prefix: 'invoice_'
       }
     }
   },
@@ -151,7 +157,7 @@ export default {
     this.resetState()
   },
   computed: {
-    ...mapGetters('ServicesIndex', ['data', 'total', 'loading'])
+    ...mapGetters('InvoicesIndex', ['data', 'total', 'loading'])
   },
   watch: {
     query: {
@@ -163,7 +169,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions('ServicesIndex', ['fetchIndexData', 'setQuery', 'resetState'])
+    ...mapActions('InvoicesIndex', ['fetchIndexData', 'setQuery', 'resetState'])
   }
 }
 </script>

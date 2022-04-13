@@ -109,28 +109,6 @@
                     </div>
                   </div>
                   <div class="form-group">
-                    <label>{{ $t('cruds.service.fields.ends_at') }}</label>
-                    <div
-                      class="form-group bmd-form-group"
-                      :class="{
-                        'has-items': entry.ends_at,
-                        'is-focused': activeField == 'ends_at'
-                      }"
-                    >
-                      <label class="bmd-label-floating">{{
-                        $t('cruds.service.fields.ends_at_helper')
-                      }}</label>
-                      <input
-                        class="form-control"
-                        type="text"
-                        :value="entry.ends_at"
-                        @input="updateEndsAt"
-                        @focus="focusField('ends_at')"
-                        @blur="clearFocus"
-                      />
-                    </div>
-                  </div>
-                  <div class="form-group">
                     <label>{{ $t('cruds.service.fields.priority') }}</label>
                     <div class="form-group bmd-form-group has-items">
                       <label class="bmd-label-floating">{{
@@ -143,6 +121,27 @@
                       >
                       </v-radio>
                     </div>
+                  </div>
+                  <div
+                    class="form-group bmd-form-group"
+                    :class="{
+                      'has-items': entry.ends_at,
+                      'is-focused': activeField == 'ends_at'
+                    }"
+                  >
+                    <label class="bmd-label-floating">{{
+                      $t('cruds.service.fields.ends_at')
+                    }}</label>
+                    <datetime-picker
+                      class="form-control"
+                      type="text"
+                      picker="date"
+                      :value="entry.ends_at"
+                      @input="updateEndsAt"
+                      @focus="focusField('ends_at')"
+                      @blur="clearFocus"
+                    >
+                    </datetime-picker>
                   </div>
                 </div>
               </div>
@@ -191,8 +190,8 @@ export default {
       'setClient',
       'setStartsFrom',
       'setType',
-      'setEndsAt',
       'setPriority',
+      'setEndsAt',
       'fetchCreateData'
     ]),
     updateTitle(e) {
@@ -207,11 +206,11 @@ export default {
     updateType(value) {
       this.setType(value)
     },
-    updateEndsAt(e) {
-      this.setEndsAt(e.target.value)
-    },
     updatePriority(value) {
       this.setPriority(value)
+    },
+    updateEndsAt(e) {
+      this.setEndsAt(e.target.value)
     },
     submitForm() {
       this.storeData()

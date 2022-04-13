@@ -35,13 +35,13 @@ class StoreServiceRequest extends FormRequest
                 'nullable',
                 'in:' . implode(',', Arr::pluck(Service::TYPE_RADIO, 'value')),
             ],
-            'ends_at' => [
-                'string',
-                'nullable',
-            ],
             'priority' => [
                 'nullable',
                 'in:' . implode(',', Arr::pluck(Service::PRIORITY_RADIO, 'value')),
+            ],
+            'ends_at' => [
+                'date_format:' . config('project.date_format'),
+                'nullable',
             ],
         ];
     }

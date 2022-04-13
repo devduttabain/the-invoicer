@@ -290,6 +290,46 @@ class PermissionsTableSeeder extends Seeder
                 'id'    => 70,
                 'title' => 'client_management_access',
             ],
+            [
+                'id'    => 71,
+                'title' => 'invoice_create',
+            ],
+            [
+                'id'    => 72,
+                'title' => 'invoice_edit',
+            ],
+            [
+                'id'    => 73,
+                'title' => 'invoice_show',
+            ],
+            [
+                'id'    => 74,
+                'title' => 'invoice_delete',
+            ],
+            [
+                'id'    => 75,
+                'title' => 'invoice_access',
+            ],
+            [
+                'id'    => 76,
+                'title' => 'invoice_item_create',
+            ],
+            [
+                'id'    => 77,
+                'title' => 'invoice_item_edit',
+            ],
+            [
+                'id'    => 78,
+                'title' => 'invoice_item_show',
+            ],
+            [
+                'id'    => 79,
+                'title' => 'invoice_item_delete',
+            ],
+            [
+                'id'    => 80,
+                'title' => 'invoice_item_access',
+            ],
         ];
 
         Permission::insert($permissions);
